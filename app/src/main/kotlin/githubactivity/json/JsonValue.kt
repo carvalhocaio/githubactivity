@@ -1,10 +1,10 @@
 package githubactivity.json
 
 /**
- * Representação mínima de qualque valor JSON.
+ * Minimal representation of any JSON value.
  *
- * Não é um JSON completo (RFC 8529) - é o suficiente para modelar o payload
- * de eventos do GitHub sem depender de uma lib externa de parsing.
+ * Not a complete JSON implementation (RFC 8259) - it's enough to model
+ * GitHub's event payload without depending on an external parsing lib.
  */
 sealed class JsonValue {
 
@@ -18,8 +18,8 @@ sealed class JsonValue {
 
     data class JsonString(val value: String) : JsonValue()
 
-    // JSON não distingue int de float no nível léxico; Double cobre os dois casos.
-    // Conversão pra Int/Long específico fica a cargo de quem consome (model/).
+    // JSON doesn't distinguish int from float at the lexical level; Double covers both cases.
+    // Conversion to a specific Int/Long is left to the consumer (model/).
     data class JsonNumber(val value: Double) : JsonValue()
 
     data class JsonBoolean(val value: Boolean) : JsonValue()

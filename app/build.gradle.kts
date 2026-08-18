@@ -15,6 +15,6 @@ kotlin {
 }
 
 application {
-    // MainKt = função main() de app/src/main/kotlin/githubactivity/Main.kt
+    // MainKt = main() function in app/src/main/kotlin/githubactivity/Main.kt
     mainClass.set("githubactivity.MainKt")
 }

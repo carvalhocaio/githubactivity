@@ -1,17 +1,17 @@
 package githubactivity.json
 
 /**
- * Erro de parsing com posição no input, pra mensagens de erro úteis
- * em vez de "algo deu errado no JSON".
+ * Parse error with input position, for useful error messages
+ * instead of "something went wrong in the JSON".
  */
 class JsonParseException(message: String, val position: Int) :
     Exception("$message (position $position)")
 
 /**
- * Parser JSON recursivo-descendente, escrito à mão pra manter o projeto
- * livre de dependências externas (RFC 8259, com escopo reduzido ao que
- * a API do GitHub de fato retorna — sem validação estrita de edge cases
- * como zeros à esquerda em números).
+ * Hand-written recursive-descent JSON parser, to keep the project
+ * free of external dependencies (RFC 8259, scoped down to what the
+ * GitHub API actually returns — no strict validation of edge cases
+ * like leading zeros in numbers).
  */
 class JsonParser private constructor(private val input: String) {
 
