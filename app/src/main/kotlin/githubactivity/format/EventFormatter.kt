@@ -10,7 +10,7 @@ object EventFormatter {
 
     fun format(event: GitHubEvent): String = when (event) {
         is GitHubEvent.Push ->
-            "Pushed ${event.commitCount} ${commitWord(event.commitCount)} to ${event.repoName}"
+            "Pushed to ${event.repoName}" + (event.branch?.let { " ($it)" } ?: "")
 
         is GitHubEvent.IssueActivity ->
             "${event.action.replaceFirstChar { it.uppercase() }} an issue in ${event.repoName}"

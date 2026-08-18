@@ -21,7 +21,7 @@ sealed class GitHubEvent {
         override val actorLogin: String,
         override val repoName: String,
         override val createdAt: String,
-        val commitCount: Int,
+        val branch: String?,
     ) : GitHubEvent()
 
     data class IssueActivity(
@@ -110,7 +110,7 @@ sealed class GitHubEvent {
             return when (type) {
                 "PushEvent" -> Push(
                     id, actorLogin, repoName, createdAt,
-                    commitCount = (payload["commits"] as? JsonValue.JsonArray)?.items?.size ?: 0,
+                    branch = payload.optionalString("ref")?.removePrefix("refs/heads/"),
                 )
 
                 "IssuesEvent" -> IssueActivity(
