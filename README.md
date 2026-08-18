@@ -58,7 +58,7 @@ export GITHUB_TOKEN=ghp_xxxxxxxxxxxx
 
 ## Exit codes
 
-| Code | Meaning                         v       |
+| Code | Meaning                                 |
 | ---- | --------------------------------------- |
 | 0    | Success                                 |
 | 1    | Invalid usage (bad/missing arguments)   |
