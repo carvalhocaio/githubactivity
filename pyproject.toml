@@ -1,0 +1,31 @@
+[project]
+name = "github-activity"
+version = "0.1.0"
+description = "Fetches and displays a GitHub user's recent public activity."
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+github-activity = "github_activity.__main__:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+    "ruff>=0.14.5",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "SIM", "RUF"]
+
+[build-system]
+requires = ["uv_build>=0.12.10,<0.13.0"]
+build-backend = "uv_build"
